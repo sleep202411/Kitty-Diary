@@ -1,0 +1,147 @@
+:root {
+  --primary-color: #ff9eb5;
+  --primary-dark: #ff7b9c;
+  --text-color: #333;
+  --text-secondary: #666;
+  --card-bg: #fff0f5;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.wrapper.searchPage {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid rgba(255, 158, 181, 0.3);
+}
+
+.backButton {
+  font-size: 24px;
+  color: var(--primary-dark);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.boxWrapper {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.box {
+  width: 100%;
+  height: 60px;
+  padding: 0 50px 0 20px;
+  border-radius: 30px;
+  border: 2px solid var(--primary-color);
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-size: 25px;
+  outline: none;
+  box-sizing: border-box;
+  /* 确保输入框可点击 */
+  pointer-events: auto;
+  /* 新增过渡效果 */
+  transition: all 0.3s ease;
+}
+
+.box:focus {
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 3px rgba(255, 158, 181, 0.2);
+}
+
+/* 新增点击热区指示 */
+.boxWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  background: rgba(255, 158, 181, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.wrapper:not(.searchPage) .boxWrapper:hover::before {
+  opacity: 1;
+}
+
+.clear {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.searchButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: 5px;
+  /* 新增悬停效果 */
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.searchButton:hover {
+  background-color: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+.searchButton:disabled {
+  opacity: 0.5;
+  transform: none !important;
+}
+
+.searchIcon {
+  font-size: 24px;
+}
+
+/* 小屏幕适配 */
+@media (max-width: 375px) {
+  .wrapper {
+    padding: 10px 10px;
+  }
+  
+  .box {
+    height: 50px;
+    font-size: 18px;
+    padding: 0 40px 0 15px;
+  }
+  
+  .searchButton {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .backButton, 
+  .clearButton,
+  .searchIcon {
+    font-size: 20px;
+  }
+
+  /* 移动端点击区域调整 */
+  .boxWrapper {
+    padding: 12px 0;
+    margin: -12px 0;
+  }
+}

@@ -1,0 +1,347 @@
+:root {
+  /* 更新颜色变量 - 更可爱的粉色系 */
+  --primary-color: #ff9eb5;
+  --primary-dark: #ff7b9c;
+  --secondary-color: #ffe6eb;
+  --text-color: #5a3d5a; /* 更柔和的紫色文本 */
+  --text-secondary: #8a7b8a;
+  --background: #fff6f9;
+  --card-bg: rgba(255, 240, 245, 0.95); /* 增加透明度 */
+  
+  /* 尺寸变量 */
+  --border-radius: 20px;
+  --spacing: 24px;
+}
+
+.storyContainer {
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  background-image: url('@/assets/Hellokitty_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: var(--spacing);
+  font-size: 16px;
+  line-height: 1.6;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========== 输入面板 ========== */
+.inputPanel {
+  background: rgba(255, 250, 240, 0.95);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+  box-shadow: 0 8px 20px rgba(255, 158, 181, 0.3);
+  border: 3px solid var(--primary-color);
+  max-width: 800px;
+  width: 90%;
+  box-sizing: border-box;
+  backdrop-filter: blur(5px);
+}
+
+.inputPanel h2 {
+  color: var(--primary-dark);
+  font-size: 2em;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1em;
+  text-shadow: 2px 2px 4px rgba(255, 214, 221, 0.5);
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+}
+
+/* ========== 输入框 ========== */
+.textInput {
+  width: 100%;
+  max-width: 100%;
+  min-height: 150px;
+  padding: 20px;
+  border: 3px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  font-size: 1.1em;
+  resize: none;
+  margin-bottom: var(--spacing);
+  transition: all 0.3s;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--text-color);
+  box-sizing: border-box;
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  line-height: 1.8;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 4px rgba(255, 123, 156, 0.3);
+  background-color: white;
+}
+
+.textInput::placeholder {
+  color: var(--primary-color);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* ========== 风格选择器 ========== */
+.styleSelector {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing);
+  width: 100%;
+  gap: 12px;
+}
+
+.styleSelector label {
+  margin-right: 10px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  white-space: nowrap;
+  font-size: 1.1em;
+}
+
+.styleSelect {
+  padding: 14px 20px;
+  border-radius: 50px;
+  border: 3px solid var(--primary-color);
+  background: linear-gradient(135deg, #fff0f5 0%, #ffffff 100%);
+  font-size: 1em;
+  color: var(--primary-dark);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff7b9c'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 24px;
+  flex-grow: 1;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.styleSelect:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 158, 181, 0.3);
+}
+
+.styleSelect:focus {
+  outline: none;
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 4px rgba(255, 123, 156, 0.3);
+}
+
+/* ========== 按钮 ========== */
+.generateButton {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #ffb6c1 100%);
+  color: white;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 50px;
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+  box-shadow: 0 6px 20px rgba(255, 158, 181, 0.4);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  font-family: "Comic Sans MS", cursive;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.generateButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 158, 181, 0.5);
+  background: linear-gradient(135deg, #ff7b9c 0%, #ffb6c1 100%);
+}
+
+.generateButton:disabled {
+  background: #ffd1dc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ========== 故事卡片 ========== */
+.storyCard {
+  background: var(--card-bg);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+  box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
+  border-left: 8px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 800px;
+  backdrop-filter: blur(5px);
+}
+
+.storyCard::before {
+  content: "✧･ﾟ: *✧･ﾟ:*";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 0 0 0 60px;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5em;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  color: var(--primary-dark);
+  font-size: 1.8em;
+  word-break: break-word;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+  font-family: "Comic Sans MS", cursive;
+  font-weight: 700;
+}
+
+.styleBadge {
+  background: rgba(255, 158, 181, 0.3);
+  color: var(--primary-dark);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.9em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 2px dashed var(--primary-color);
+}
+
+.storyContent {
+  line-height: 1.8;
+  color: var(--text-color);
+  white-space: pre-line;
+  font-size: 1.1em;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 25px;
+  border-radius: calc(var(--border-radius) - 5px);
+  font-family: inherit;
+  box-shadow: inset 0 3px 6px rgba(255, 158, 181, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 158, 181, 0.2);
+}
+
+.storyContent:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 3px 8px rgba(255, 158, 181, 0.2);
+}
+
+/* ========== 再次生成按钮 ========== */
+.regenerateButton {
+  background: white;
+  border: 3px solid var(--primary-color);
+  color: var(--primary-dark);
+  padding: 14px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+  width: 100%;
+  margin-top: var(--spacing);
+  box-sizing: border-box;
+  font-size: 1.1em;
+  font-family: "Comic Sans MS", cursive;
+}
+
+.regenerateButton:hover {
+  background: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 158, 181, 0.2);
+}
+
+.regenerateButton:disabled {
+  background: #ffd1dc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ========== 装饰元素 ========== */
+.storyCard::after {
+  content: "⋆｡°✩";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 24px;
+  opacity: 0.3;
+}
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 768px) {
+  :root {
+    --spacing: 16px;
+    --border-radius: 16px;
+  }
+  
+  .storyContainer {
+    font-size: 19px;
+    padding: 16px;
+  }
+  
+  .textInput {
+    min-height: 120px;
+    padding: 15px;
+    font-size: 1.3em;
+  }
+  
+  .inputPanel, .storyCard {
+    width: 95%;
+  }
+  
+  .cardHeader h3 {
+    font-size: 2.2em;
+  }
+  
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .styleBadge {
+    margin-left: 0;
+    font-size: 1.1em;
+  }
+  
+  .styleSelect {
+    font-size: 1.2em;
+  }
+  
+  .storyContent {
+    font-size: 1.4em;
+  }
+  
+  .generateButton, .regenerateButton {
+    padding: 14px 20px;
+    font-size: 1.5em;
+  }
+  
+}

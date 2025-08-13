@@ -1,0 +1,157 @@
+:root {
+  --primary-color: #ff9eb5;
+  --primary-dark: #ff7b9c;
+  --secondary-color: #ffe6eb;
+  --text-color: #333;
+  --background: #fff6f9;
+  --card-bg: #fff0f5;
+  --border-radius: 16px;
+  --box-shadow: 0 4px 12px rgba(255, 158, 181, 0.2);
+}
+
+.container {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  padding: 16px;
+  background-color: var(--background);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-image: url('@/assets/Hellokitty_bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.header {
+  text-align: center;
+  padding: 8px 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(5px);
+  box-shadow: var(--box-shadow);
+}
+
+.title {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 600;
+  background: linear-gradient(to right, #ff7b9c, #ffb3c6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.diaryButton {
+  position: fixed;
+  right: 30px;
+  bottom: 150px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  /* 奶黄色样式 */
+  background: linear-gradient(145deg, #FFF5D9, #FFEDB8);
+  color: #8B6D3A; /* 搭配的深奶咖色文字 */
+  border: none;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  /* 柔和阴影+发光边框 */
+  box-shadow: 
+    0 8px 25px rgba(255, 214, 153, 0.6),
+    0 0 0 6px rgba(255, 249, 230, 0.4);
+  transition: all 0.3s ease;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.diaryButton:hover {
+  transform: translateY(-8px) scale(1.1);
+  background: linear-gradient(145deg, #FFEDB8, #FFE08B);
+  box-shadow: 
+    0 12px 35px rgba(255, 214, 153, 0.7),
+    0 0 0 8px rgba(255, 249, 230, 0.5);
+  animation: float 2s ease-in-out infinite;
+}
+
+.buttonIcon {
+  font-size: 2.2rem;
+  margin-bottom: 4px;
+  color: #b7b45d87; /* 蜜糖金色图标 */
+  animation: float 2.2s ease-in-out infinite;
+}
+
+.diaryButton:active {
+  transform: translateY(-2px) scale(0.98);
+}
+.searchBoxWrapper {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* 确保搜索框在首页不可编辑时的样式 */
+:global(.wrapper:not(.searchPage) .input) {
+  cursor: pointer;
+  background-color: #fff;
+  pointer-events: none;
+}
+/* 更生动的浮动动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(-15deg);
+  }
+  25% {
+    transform: translateY(-6px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(15deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(5deg);
+  }
+}
+
+/* 更明显的心跳动画 */
+@keyframes heartbeat {
+  0% { transform: translateY(-5px) scale(1.1); }
+  25% { transform: translateY(-5px) scale(1.2); }
+  50% { transform: translateY(-5px) scale(1.1); }
+  75% { transform: translateY(-5px) scale(1.2); }
+  100% { transform: translateY(-5px) scale(1.1); }
+}
+
+/* 点击波纹效果增强 */
+.diaryButton::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.diaryButton:active::after {
+  opacity: 1;
+}
+/* 移动端适配 */
+@media (max-width: 480px) {
+  .diaryButton {
+    right: 24px;
+    bottom: 120px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .buttonIcon {
+    font-size: 1rem;
+  }
+  
+}

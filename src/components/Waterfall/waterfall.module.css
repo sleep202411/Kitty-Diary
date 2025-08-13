@@ -1,0 +1,29 @@
+/* 确保滚动容器正确 */
+.container {
+  min-height: calc(100vh - 60px); /* 减去header高度 */
+  position: relative;
+}
+
+.waterfall {
+  display: flex;
+  gap: 16px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 防止body默认边距影响 */
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.noMore {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-size: 14px;
+}

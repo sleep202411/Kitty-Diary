@@ -1,0 +1,280 @@
+:root {
+  /* 颜色变量 */
+  --primary-color: #ff9eb5;
+  --primary-dark: #ff7b9c;
+  --secondary-color: #ffe6eb;
+  --secondary-dark: #3a2a2e;
+  --text-color: #333;
+  --text-dark: #f0f0f0;
+  --text-secondary: #666;
+  --text-secondary-dark: #cccccc;
+  --background: #fff6f9;
+  --background-dark: #1a1215;
+  --card-bg: #fff0f5;
+  --card-bg-dark: #2a1d22;
+  
+  /* 尺寸变量 */
+  --border-radius: 16px;
+  --avatar-size: 180px;
+  --avatar-size-mobile: 150px;
+  --border-width: 6px;
+  --border-width-mobile: 4px;
+  --spacing: 20px;
+  --spacing-mobile: 15px;
+}
+
+.container {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  background-image: url('@/assets/Hellokitty_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: var(--text-color);
+  min-height: 100vh;
+  font-size: 32px;
+  line-height: 1.5;
+}
+
+/* ========== 用户信息 ========== */
+.userInfo {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #fffaf0, #fff0f6);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+}
+
+.avatarContainer {
+  position: relative;
+  margin-right: var(--spacing);
+}
+
+.avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  border: var(--border-width) solid var(--primary-color);
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 158, 181, 0.2);
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 158, 181, 0.3);
+}
+
+.avatarLoading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.userText {
+  flex: 1;
+  min-width: 0;
+  padding: 0 5px;
+}
+
+.nickname {
+  font-size: 1.7em;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.3em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.nickname:hover {
+  background: rgba(255, 158, 181, 0.1);
+}
+
+.status {
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status:hover {
+  background: rgba(255, 158, 181, 0.1);
+}
+
+/* 编辑容器 */
+.editContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.editInput {
+  background: white;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  width: 100%;
+}
+
+.editButtons {
+  display: flex;
+  gap: 10px;
+}
+
+/* ========== 卡片通用样式 ========== */
+.card {
+  background: var(--card-bg);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+}
+
+.card-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.8em;
+}
+
+/* 通用标题样式 */
+.tips h3,
+.badges h3,
+.settings h3 {
+  font-size: 1.15em;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.8em;
+}
+
+/* 小贴士 */
+.tipCard {
+  background: linear-gradient(90deg, #fffaf0, #fff0f6);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+}
+
+/* 勋章系统 */
+.badgeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8em;
+}
+
+.badge {
+  background: #e6f7ff;
+  padding: 0.4em 0.8em;
+  border-radius: 2em;
+  font-size: 1em;
+  white-space: nowrap;
+  color: var(--text-color);
+}
+
+/* 设置 */
+.settingsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settingItem {
+  padding: 0.8em;
+  background: #f0f9ff;
+  border-radius: calc(var(--border-radius) / 2);
+  margin-bottom: 0.6em;
+  font-size: 1em;
+  color: var(--text-color);
+  transition: background 0.2s;
+}
+
+.settingItem:active {
+  background: #d9f0ff;
+}
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 768px) {
+  :root {
+    --spacing: var(--spacing-mobile);
+    --avatar-size: var(--avatar-size-mobile);
+    --border-width: var(--border-width-mobile);
+  }
+  
+  .container {
+    font-size: 24px;
+  }
+  
+  .userInfo {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .avatarContainer {
+    margin-right: 0;
+    margin-bottom: var(--spacing);
+  }
+  
+  .userText {
+    width: 100%;
+  }
+  
+  .editInput {
+    font-size: 0.8em;
+  }
+}
+
+/* ========== 深色模式 ========== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: var(--primary-dark);
+    --secondary-color: var(--secondary-dark);
+    --text-color: var(--text-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --background: var(--background-dark);
+    --card-bg: var(--card-bg-dark);
+  }
+  
+  
+  
+  .tipCard {
+    background: linear-gradient(90deg, #2a2520, #3a2a2f);
+  }
+  
+  .badge {
+    background: #1a3a4a;
+    color: var(--text-dark);
+  }
+  
+  .settingItem {
+    background: #1a2a3a;
+  }
+  
+  .settingItem:active {
+    background: #2a3a4a;
+  }
+  
+  .editInput {
+    background: var(--card-bg-dark);
+    color: var(--text-dark);
+    border-color: var(--primary-dark);
+  }
+  
+  .nickname:hover, .status:hover {
+    background: rgba(255, 123, 156, 0.1);
+  }
+}

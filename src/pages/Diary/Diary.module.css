@@ -1,0 +1,436 @@
+/* 基础变量 */
+:root {
+  --primary-color: #ff9eb5;
+  --primary-dark: #ff7b9c;
+  --secondary-color: #ffe6eb;
+  --text-color: #333;
+  --text-light: #666;
+  --border-radius: 16px;
+  --box-shadow: 0 4px 12px rgba(255, 158, 181, 0.2);
+  --back-button-size: 24px;
+  --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* 容器样式 */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: url('@/assets/HelloKitty_bg.jpg') center/cover no-repeat fixed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(5px);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 20px;
+}
+
+.backButton {
+  font-size: var(--back-button-size);
+  color: var(--primary-dark);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.backButton:hover {
+  transform: scale(1.1);
+}
+
+/* 编辑器区域 */
+.editorContainer {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  margin-bottom: 24px;
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(5px);
+  position: relative;
+
+}
+
+.emojiSelector {
+  position: relative;
+  margin-bottom: 12px;
+  z-index: 1001;
+}
+
+.selectedEmoji {
+  font-size: 56px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.selectedEmoji:hover {
+  transform: scale(1.2);
+}
+
+.emojiPickerWrapper {
+  position: fixed;
+  z-index: 1002;
+  top: 100px;
+  left: 0;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.diaryInput {
+  width: 100%;
+  border: 2px solid #f0f0f0;
+  background: white;
+  resize: none;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 12px;
+  margin-bottom: 12px;
+  min-height: 100px;
+  outline: none;
+  color: var(--text-color);
+  border-radius: 12px;
+  transition: border-color 0.3s;
+}
+
+.diaryInput:focus {
+  border-color: var(--primary-color);
+}
+
+.diaryInput::placeholder {
+  color: #ccc;
+}
+
+/* 图片预览 */
+.imagePreview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.imageItem {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.imageItem:hover {
+  transform: scale(1.05);
+}
+
+.imageItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.removeImageBtn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.removeImageBtn:hover {
+  background-color: rgba(255, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+/* 操作按钮 */
+.actionButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.uploadButton, .submitButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 36px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.uploadButton {
+  background-color: #f8f8f8;
+  color: var(--text-light);
+  border: 1px dashed #ddd;
+}
+
+.uploadButton:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
+
+.submitButton {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+}
+
+.submitButton:hover {
+  background-color: var(--primary-dark);
+  box-shadow: 0 2px 8px rgba(255, 158, 181, 0.4);
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* 日记列表 */
+.diaryList {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.listTitle {
+  font-size: 30px;
+  margin: 0 0 16px;
+  color: var(--primary-dark);
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--primary-color);
+  font-weight: 600;
+  
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--text-light);
+}
+
+.emptyState img {
+  width: 120px;
+  opacity: 0.6;
+  margin-bottom: 16px;
+}
+
+/* 日记项 */
+.diaryItem {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.diaryItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.diaryItem.expanded {
+  background-color: #fff9fb;
+}
+
+.diaryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.diaryDate {
+  font-size: 30px;
+  color: var(--text-light);
+}
+
+.diaryEmoji {
+  font-size: 30px;
+}
+
+.diaryContent {
+  font-size: 30px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.diaryPreview {
+  margin: 0;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.diaryImages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.diaryImages img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.diaryImages img:hover {
+  transform: scale(1.03);
+}
+
+.diaryActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed #eee;
+}
+
+.editBtn, .deleteBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.editBtn {
+  background-color: #f0f0f0;
+  color: var(--text-light);
+}
+
+.editBtn:hover {
+  background-color: #e0e0e0;
+}
+
+.deleteBtn {
+  background-color: #ffebee;
+  color: #f44336;
+}
+
+.deleteBtn:hover {
+  background-color: #ffcdd2;
+}
+
+/* 编辑模式特定样式 */
+.editHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.editEmoji {
+  font-size: 56px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.editEmoji:hover {
+  transform: scale(1.1);
+}
+
+.editActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.cancelEditBtn, .saveEditBtn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 36px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelEditBtn {
+  background-color: #f0f0f0;
+  color: var(--text-light);
+}
+
+.cancelEditBtn:hover {
+  background-color: #e0e0e0;
+}
+
+.saveEditBtn {
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.saveEditBtn:hover {
+  background-color: var(--primary-dark);
+}
+
+.saveEditBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+  }
+  
+  .editorContainer {
+    padding: 12px;
+  }
+  
+  .diaryInput {
+    font-size: 36px;
+    min-height: 540px;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+  }
+  
+  .diaryImages img {
+    width: 80px;
+    height: 80px;
+  }
+}
