@@ -92,7 +92,6 @@
         /api/images?page=${n} 支持翻页
         唯一id  page + index 
         随机图片， 高度随机
-    - images 怎么放到两列中？ MVVM
     数据驱动界面（2列） 奇偶
     - 加载更多 位于盒子底部的元素 通过使用 IntersectionObserver
     观察它是否出现在视窗， 性能更好，使用了观察者模式

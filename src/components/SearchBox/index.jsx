@@ -36,7 +36,7 @@ const SearchBox = (props) => {
         handleQueryDebounce(query);
         // 返回清除函数，避免内存泄漏
         return () => handleQueryDebounce.cancel?.();
-    }, [query, handleQueryDebounce]);
+    }, [query]);
 
     const handleChange = useCallback((e) => {
         const val = e.currentTarget.value;
