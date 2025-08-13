@@ -97,4 +97,4 @@
     - 加载更多 位于盒子底部的元素 通过使用 IntersectionObserver
     观察它是否出现在视窗， 性能更好，使用了观察者模式
     - key  id 下拉刷新
-    - 使用IntersectionObserver 再次图片懒加载 data-src 
+    - 使用IntersectionObserver 再次图片懒加载 
