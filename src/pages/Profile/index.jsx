@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import useTitle from "@/hooks/useTitle";
-import styles from "./Profile.module.css";
+import styles from "./profile.module.css";
 import { generateAvatar } from '@/llm';
 import { ActionSheet, Image, Loading, Toast, Dialog, Button, Input } from 'react-vant';
 import useUserStore from '@/store/useUserStore';
