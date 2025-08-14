@@ -1,6 +1,6 @@
 // Waterfall.js
 import { useState, useEffect} from 'react';
-import styles from './Waterfall.module.css';
+import styles from './waterfall.module.css';
 import ImageCard from '../ImageCard';
 import KittyLoading from '../KittyLoading';
 import { useImageStore }from '@/store/useImageStore';
