@@ -174,6 +174,7 @@ const Profile = () => {
         cancelText="取消"
         onCancel={() => setShowActionSheet(false)}
         onSelect={handleAction}
+        timeout={300}
       />
     </div>
   );

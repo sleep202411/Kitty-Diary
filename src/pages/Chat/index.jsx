@@ -1,7 +1,7 @@
 import useTitle from '@/hooks/useTitle';
 import styles from './Chat.module.css';
 import { useState, useEffect, useRef } from 'react';
-import { kimiChat as chat } from '@/llm';
+import { chat } from '@/llm';
 import kittyAvatar from '@/assets/kitty-avatar.png'; // 导入默认头像
 import useChatStore from '@/store/useChatStore';
 import useUserStore from '@/store/useUserStore';
@@ -9,9 +9,6 @@ import { Toast } from 'react-vant';
 
 const Chat = () => {
   useTitle('kitty陪伴助手');
-  
-  // 从localStorage获取用户信息
-
 
   const { messages, addMessage, clearMessages } = useChatStore();
   const { userInfo } = useUserStore();

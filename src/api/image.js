@@ -1,20 +1,21 @@
 import axios from './config';
 
+/**
+ * 获取瀑布流图片
+ * @param {number} page 页码
+ * @returns {Promise<{images: Array, hasMore: boolean}>}
+ */
 export const getImages = async (page = 1) => {
   try {
-    const res = await axios.get('/images', { 
+    const res = await axios.get('/images', {
       params: { page },
       timeout: 5000
     });
-    
-    // 开发环境判断改用 import.meta.env
-    if (import.meta.env.MODE === 'development') {
-      return Array.isArray(res) ? res : res?.data?.images || [];
-    } else {
-      return res?.images || res?.data?.images || [];
-    }
-  } catch (error) {
-    console.error('获取图片失败:', error);
-    return [];
+    const data = res.data;
+
+    return data.code === 0 ? data.data : { images: [], hasMore: false };
+  } catch (e) {
+    console.error('获取图片失败:', e);
+    return { images: [], hasMore: false };
   }
 };

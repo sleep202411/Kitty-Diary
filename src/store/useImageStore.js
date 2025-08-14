@@ -12,11 +12,11 @@ export const useImageStore = create((set, get) => ({
     
     set({ loading: true });
     try {
-      const newImages = await getImages(get().page);
+      const result = await getImages(get().page);
       set((state) => ({
-        images: [...state.images, ...newImages],
+        images: [...state.images, ...result.images],
         page: state.page + 1,
-        hasMore: newImages.length > 0,
+        hasMore: result.hasMore,
         loading: false
       }));
     } catch (error) {
