@@ -19,7 +19,7 @@
   padding: 24px 16px;
   box-sizing: border-box;
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-  background: url('@/assets/HelloKitty_bg.jpg') center/cover no-repeat fixed;
+  background: url('/@/assets/HelloKitty_bg.jpg') center/cover no-repeat fixed;
   position: relative;
   overflow-x: hidden;
 }

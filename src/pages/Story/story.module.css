@@ -15,7 +15,7 @@
 
 .storyContainer {
   font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
-  background-image: url('@/assets/Hellokitty_bg.jpg');
+  background-image: url('/@/assets/Hellokitty_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

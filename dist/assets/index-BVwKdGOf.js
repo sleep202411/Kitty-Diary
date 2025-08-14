@@ -1,0 +1,1 @@
+import{j as e}from"./index-DWBBPSga.js";const s="_header_1bq0r_1",a="_title_1bq0r_10",t={header:s,title:a},c=({title:r})=>e.jsx("header",{className:t.header,children:e.jsx("h1",{className:t.title,children:r})});export{c as A};
