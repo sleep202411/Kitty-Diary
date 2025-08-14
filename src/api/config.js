@@ -1,12 +1,12 @@
 import axios from "axios";
 
-// 环境判断
-const isProduction = process.env.NODE_ENV === 'production';
-const isVercel = process.env.VERCEL === '1'; // Vercel自动注入的环境变量
+// ✅ Vite 环境变量
+const isProduction = import.meta.env.MODE === 'production';
+const isVercel = import.meta.env.VITE_VERCEL === '1'; // 必须以 VITE_ 开头
 
 // 设置基础URL
 axios.defaults.baseURL = isProduction
-  ? (isVercel ? '/api' : '/api') // 统一使用/api作为生产环境路径
+  ? (isVercel ? '/api' : '/api') // 生产环境
   : 'http://localhost:5173/api'; // 开发环境
 
 // 请求拦截器

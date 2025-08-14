@@ -6,7 +6,7 @@ import Mock from 'mockjs';
  * @returns {Promise<{code: number, data: Array<{id: string, keyword: string}>}>}
  */
 export const getHotList = async () => {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.MODE === 'development') {
     // 开发环境使用Mock数据
     return {
       code: 0,
@@ -33,7 +33,7 @@ export const getHotList = async () => {
  * @returns {Promise<{code: number, data: string[]}>}
  */
 export const getSuggestList = async (keyword) => {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.MODE === 'development') {
     // 开发环境使用Mock数据
     const count = Mock.Random.integer(0, 9);
     const list = [];
@@ -57,7 +57,7 @@ export const getSuggestList = async (keyword) => {
 };
 
 // Mock数据配置（仅开发环境需要）
-if (process.env.NODE_ENV === 'development') {
+if (import.meta.env.MODE === 'development') {
   import('./mock').then(mockModule => {
     const mock = mockModule.default;
     mock.forEach(item => {
