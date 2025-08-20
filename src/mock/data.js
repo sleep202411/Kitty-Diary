@@ -6,10 +6,10 @@ export const generateDiaryData = () => {
     return Mock.mock({
       id: Mock.Random.id(),
       caption: Mock.Random.ctitle(1, 12) + ' ' + Mock.Random.csentence(3, 20),
-      url: Mock.Random.image('300x400', Mock.Random.color(), '#fff', 'diary'),
+      url: Mock.Random.image('250x350', Mock.Random.color(), '#fff', 'diary'),
       date: Mock.Random.date('2025-MM-dd'),
       tags: Mock.Random.shuffle(['日常', '心情', '旅行', '美食', '学习']).slice(0, 2),
-      height: Mock.Random.integer(200, 500),
+      height: Mock.Random.integer(300, 500),
       mood: moods[i % moods.length],
     });
   });

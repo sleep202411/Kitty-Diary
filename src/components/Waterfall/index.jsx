@@ -1,34 +1,37 @@
-// Waterfall.js
-import { useState, useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import styles from './waterfall.module.css';
 import ImageCard from '../ImageCard';
 import KittyLoading from '../KittyLoading';
-import { useImageStore }from '@/store/useImageStore';
+import { useImageStore } from '@/store/useImageStore';
 
 const Waterfall = () => {
   const { images, loading, hasMore, fetchMore } = useImageStore();
-  const [columns, setColumns] = useState(2);
+  const [leftCol, setLeftCol] = useState([]);
+  const [rightCol, setRightCol] = useState([]);
 
-  // Responsive layout
+  // 分配新图片到左右列
   useEffect(() => {
-    const handleResize = () => {
-      setColumns(2);
-    };
-    
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    const newLeft = [...leftCol];
+    const newRight = [...rightCol];
 
-  // Infinite scroll with debounce
+    const getHeight = col => col.reduce((sum, img) => sum + img.height, 0);
+
+    images.slice(leftCol.length + rightCol.length).forEach(img => {
+      if (getHeight(newLeft) <= getHeight(newRight)) newLeft.push(img);
+      else newRight.push(img);
+    });
+
+    setLeftCol(newLeft);
+    setRightCol(newRight);
+  }, [images]);
+
+  // 下拉加载
   useEffect(() => {
     let ticking = false;
-    
     const handleScroll = () => {
       if (!ticking && !loading && hasMore) {
         window.requestAnimationFrame(() => {
-          if (window.innerHeight + window.scrollY >= 
-              document.body.offsetHeight - 500) {
+          if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
             fetchMore();
           }
           ticking = false;
@@ -36,35 +39,25 @@ const Waterfall = () => {
         ticking = true;
       }
     };
-    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [loading, hasMore, fetchMore]);
 
-  // Initialize on mount
+  // 初始化加载
   useEffect(() => {
-    if (images.length === 0) {
-      fetchMore();
-    }
+    if (images.length === 0) fetchMore();
   }, [fetchMore, images.length]);
 
   return (
     <div className={styles.container}>
-      <div className={styles.waterfall}>
-        {Array.from({ length: columns }).map((_, colIndex) => (
-          <div key={colIndex} className={styles.column}>
-            {images
-              .filter((_, index) => index % columns === colIndex)
-              .map(image => (
-                <ImageCard 
-                  key={image.id} 
-                  image={image} 
-                />
-              ))}
-          </div>
-        ))}
+      <div className={styles.waterfallWrapper}>
+        <div className={styles.column}>
+          {leftCol.map(img => <ImageCard key={img.id} image={img} />)}
+        </div>
+        <div className={styles.column}>
+          {rightCol.map(img => <ImageCard key={img.id} image={img} />)}
+        </div>
       </div>
-
       {loading && <KittyLoading />}
       {!hasMore && images.length > 0 && (
         <div className={styles.noMore}>没有更多内容啦～</div>

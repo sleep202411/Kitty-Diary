@@ -14,13 +14,10 @@
   --card-bg-dark: #2a1d22;
   
   /* 尺寸变量 */
-  --border-radius: 16px;
-  --avatar-size: 180px;
-  --avatar-size-mobile: 150px;
-  --border-width: 6px;
-  --border-width-mobile: 4px;
-  --spacing: 20px;
-  --spacing-mobile: 15px;
+  --border-radius: 0.213333rem;
+  --avatar-size: 2.4rem;
+  --border-width: 0.08rem;
+  --spacing: 0.266667rem;
 }
 
 .container {
@@ -32,7 +29,7 @@
   background-position: center;
   color: var(--text-color);
   min-height: 100vh;
-  font-size: 32px;
+  font-size: 0.426667rem;
   line-height: 1.5;
 }
 
@@ -59,12 +56,12 @@
   object-fit: cover;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 158, 181, 0.2);
+  box-shadow: 0 0.053333rem 0.16rem rgba(255, 158, 181, 0.2);
 }
 
 .avatar:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(255, 158, 181, 0.3);
+  box-shadow: 0 0.08rem 0.213333rem rgba(255, 158, 181, 0.3);
 }
 
 .avatarLoading {
@@ -78,7 +75,7 @@
 .userText {
   flex: 1;
   min-width: 0;
-  padding: 0 5px;
+  padding: 0 0.066667rem;
 }
 
 .nickname {
@@ -91,8 +88,8 @@
   text-overflow: ellipsis;
   cursor: pointer;
   transition: all 0.2s;
-  padding: 2px 4px;
-  border-radius: 4px;
+  padding: 0.026667rem 0.053333rem;
+  border-radius: 0.053333rem;
 }
 
 .nickname:hover {
@@ -107,7 +104,7 @@
   text-overflow: ellipsis;
   cursor: pointer;
   transition: all 0.2s;
-  padding: 4px 8px;
+  padding: 0.053333rem 0.106667rem;
   border-radius: 4px;
 }
 
@@ -119,15 +116,15 @@
 .editContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 0.133333rem;
+  margin-bottom: 0.133333rem;
 }
 
 .editInput {
   background: white;
   border: 1px solid var(--primary-color);
-  border-radius: 8px;
-  padding: 8px 12px;
+  border-radius: 0.106667rem;
+  padding: 0.106667rem 0.16rem;
   font-size: 0.9em;
   width: 100%;
 }
@@ -210,13 +207,13 @@
 /* ========== 响应式设计 ========== */
 @media (max-width: 768px) {
   :root {
-    --spacing: var(--spacing-mobile);
-    --avatar-size: var(--avatar-size-mobile);
-    --border-width: var(--border-width-mobile);
+    --spacing: 0.266667rem;
+    --avatar-size: 2.4rem;
+    --border-width: 0.08rem;
   }
   
   .container {
-    font-size: 24px;
+    font-size: 0.426667rem;
   }
   
   .userInfo {

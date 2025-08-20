@@ -67,24 +67,26 @@ export const generateAvatar = async (text) => {
     `;
 
     try {
+        console.log('开始生成头像，输入文本:', text);
         // 第一步：获取头像描述
         const descriptionResponse = await kimiChat([
-            {
+            { 
                 role: "user",
                 content: prompt
             }
         ]);
+        console.log('获取头像描述响应:', descriptionResponse);
 
         if (descriptionResponse.code !== 0 || !descriptionResponse.data.content) {
             throw new Error('获取头像描述失败');
         }
 
         const avatarDescription = descriptionResponse.data.content;
-console.log(avatarDescription)
+        console.log('头像描述:', avatarDescription);
         const avatarUrl = `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(avatarDescription)}`;
-    return avatarUrl;
-} catch (error) {
-
+        console.log('生成的头像URL:', avatarUrl);
+        return avatarUrl;
+    } catch (error) {
         console.error('生成头像失败:', error);
         // 返回默认头像
         return 'https://placekitten.com/200/200';

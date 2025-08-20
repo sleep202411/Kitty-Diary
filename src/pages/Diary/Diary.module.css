@@ -16,7 +16,7 @@
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 24px 16px;
+  padding: 0.32rem 0.213333rem;
   box-sizing: border-box;
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
   background: url('/@/assets/HelloKitty_bg.jpg') center/cover no-repeat fixed;
@@ -27,13 +27,13 @@
 .headerWrapper {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 12px 16px;
+  gap: 0.213333rem;
+  padding: 0.16rem 0.213333rem;
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
   backdrop-filter: blur(5px);
   box-shadow: var(--box-shadow);
-  margin-bottom: 20px;
+  margin-bottom: 0.266667rem;
 }
 
 .backButton {

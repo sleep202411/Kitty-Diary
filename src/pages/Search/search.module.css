@@ -22,9 +22,9 @@
 
 /* 搜索框区域 */
 .searchWrapper {
-  padding: 15px;
+  padding: 0.2rem;
   background: linear-gradient(to bottom, #ff85a2, #ff6b8b);
-  box-shadow: 0 2px 15px rgba(255, 107, 139, 0.3);
+  box-shadow: 0 0.026667rem 0.2rem rgba(255, 107, 139, 0.3);
   position: relative;
   z-index: 10;
 }
@@ -33,20 +33,20 @@
 .suggestWrapper {
   flex: 1;
   overflow-y: auto;
-  padding: 15px;
+  padding: 0.2rem;
   padding-top: 0;
   scroll-behavior: smooth;
 }
 
 /* 分区标题 */
 .title {
-  font-size: 20px;
+  font-size: 0.266667rem;
   color: #ff4d7d;
-  margin: 20px 0 15px;
-  padding-bottom: 8px;
-  border-bottom: 2px dashed #ffb6c1;
+  margin: 0.266667rem 0 0.2rem;
+  padding-bottom: 0.106667rem;
+  border-bottom: 0.026667rem dashed #ffb6c1;
   font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  text-shadow: 0.013333rem 0.013333rem 0.026667rem rgba(255, 255, 255, 0.5);
 }
 
 /* 热门搜索和历史记录通用样式 */

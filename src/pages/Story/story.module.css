@@ -37,9 +37,9 @@
   padding: var(--spacing);
   border-radius: var(--border-radius);
   margin-bottom: var(--spacing);
-  box-shadow: 0 8px 20px rgba(255, 158, 181, 0.3);
-  border: 3px solid var(--primary-color);
-  max-width: 800px;
+  box-shadow: 0 0.106667rem 0.266667rem rgba(255, 158, 181, 0.3);
+  border: 0.04rem solid var(--primary-color);
+  max-width: 10.666667rem;
   width: 90%;
   box-sizing: border-box;
   backdrop-filter: blur(5px);
@@ -51,7 +51,7 @@
   text-align: center;
   margin-top: 0;
   margin-bottom: 1em;
-  text-shadow: 2px 2px 4px rgba(255, 214, 221, 0.5);
+  text-shadow: 0.026667rem 0.026667rem 0.053333rem rgba(255, 214, 221, 0.5);
   font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
 }
 
@@ -59,9 +59,9 @@
 .textInput {
   width: 100%;
   max-width: 100%;
-  min-height: 150px;
-  padding: 20px;
-  border: 3px solid var(--primary-color);
+  min-height: 2rem;
+  padding: 0.266667rem;
+  border: 0.04rem solid var(--primary-color);
   border-radius: var(--border-radius);
   font-size: 1.1em;
   resize: none;
@@ -93,11 +93,11 @@
   align-items: center;
   margin-bottom: var(--spacing);
   width: 100%;
-  gap: 12px;
+  gap: 0.16rem;
 }
 
 .styleSelector label {
-  margin-right: 10px;
+  margin-right: 0.133333rem;
   font-weight: 600;
   color: var(--primary-dark);
   white-space: nowrap;
@@ -105,9 +105,9 @@
 }
 
 .styleSelect {
-  padding: 14px 20px;
-  border-radius: 50px;
-  border: 3px solid var(--primary-color);
+  padding: 0.186667rem 0.266667rem;
+  border-radius: 0.666667rem;
+  border: 0.04rem solid var(--primary-color);
   background: linear-gradient(135deg, #fff0f5 0%, #ffffff 100%);
   font-size: 1em;
   color: var(--primary-dark);
@@ -141,24 +141,24 @@
   background: linear-gradient(135deg, var(--primary-color) 0%, #ffb6c1 100%);
   color: white;
   border: none;
-  padding: 16px 30px;
-  border-radius: 50px;
+  padding: 0.213333rem 0.4rem;
+  border-radius: 0.666667rem;
   font-size: 1.2em;
   font-weight: 600;
   cursor: pointer;
   width: 100%;
   transition: all 0.3s;
-  box-shadow: 0 6px 20px rgba(255, 158, 181, 0.4);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  box-shadow: 0 0.08rem 0.266667rem rgba(255, 158, 181, 0.4);
+  text-shadow: 0.013333rem 0.013333rem 0.026667rem rgba(0,0,0,0.1);
   box-sizing: border-box;
   font-family: "Comic Sans MS", cursive;
-  letter-spacing: 1px;
-  margin-top: 10px;
+  letter-spacing: 0.013333rem;
+  margin-top: 0.133333rem;
 }
 
 .generateButton:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255, 158, 181, 0.5);
+  transform: translateY(-0.066667rem);
+  box-shadow: 0 0.133333rem 0.333333rem rgba(255, 158, 181, 0.5);
   background: linear-gradient(135deg, #ff7b9c 0%, #ffb6c1 100%);
 }
 
@@ -175,13 +175,13 @@
   padding: var(--spacing);
   border-radius: var(--border-radius);
   margin-bottom: var(--spacing);
-  box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
-  border-left: 8px solid var(--primary-color);
+  box-shadow: 0 0.106667rem 0.333333rem rgba(255, 182, 193, 0.3);
+  border-left: 0.106667rem solid var(--primary-color);
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
   width: 90%;
-  max-width: 800px;
+  max-width: 10.666667rem;
   backdrop-filter: blur(5px);
 }
 
@@ -190,11 +190,11 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 60px;
-  height: 60px;
+  width: 0.8rem;
+  height: 0.8rem;
   color: white;
   background-color: var(--primary-color);
-  border-radius: 0 0 0 60px;
+  border-radius: 0 0 0 0.8rem;
   opacity: 0.9;
   display: flex;
   align-items: center;

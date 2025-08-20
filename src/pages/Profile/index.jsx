@@ -10,6 +10,7 @@ const Profile = () => {
 
   const userStore = useUserStore();
   const { userInfo, setUserInfo } = userStore;
+  console.log('当前头像地址:', userInfo?.avatar);
 
   const [editingField, setEditingField] = useState(null);
   const [editValue, setEditValue] = useState('');

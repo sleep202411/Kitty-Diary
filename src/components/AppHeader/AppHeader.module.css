@@ -1,10 +1,10 @@
 .header {
   text-align: center;
-  padding: 8px 0;
+  padding: 0.106667rem 0;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 16px;
+  border-radius: 0.213333rem;
   backdrop-filter: blur(5px);
-  box-shadow: 0 4px 12px rgba(255, 158, 181, 0.2);
+  box-shadow: 0 0.053333rem 0.16rem rgba(255, 158, 181, 0.2);
 }
 
 .title {

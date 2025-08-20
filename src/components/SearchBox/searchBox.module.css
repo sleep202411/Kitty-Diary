@@ -1,28 +1,20 @@
-:root {
-  --primary-color: #ff9eb5;
-  --primary-dark: #ff7b9c;
-  --text-color: #333;
-  --text-secondary: #666;
-  --card-bg: #fff0f5;
-}
-
 .wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.133rem;
   width: 100%;
-  padding: 10px 15px;
+  padding: 0.133rem 0.2rem;
   box-sizing: border-box;
   position: relative;
 }
 
 .wrapper.searchPage {
   background-color: var(--card-bg);
-  border-bottom: 1px solid rgba(255, 158, 181, 0.3);
+  border-bottom: 0.013rem solid rgba(255, 158, 181, 0.3);
 }
 
 .backButton {
-  font-size: 24px;
+  font-size: 0.32rem;
   color: var(--primary-dark);
   cursor: pointer;
   flex-shrink: 0;
@@ -36,13 +28,13 @@
 
 .box {
   width: 100%;
-  height: 60px;
-  padding: 0 50px 0 20px;
-  border-radius: 30px;
-  border: 2px solid var(--primary-color);
+  height: 0.8rem;
+  padding: 0 0.667rem 0 0.267rem;
+  border-radius: 0.4rem;
+  border: 0.027rem solid var(--primary-color);
   background-color: var(--card-bg);
   color: var(--text-color);
-  font-size: 25px;
+  font-size: 0.333rem;
   outline: none;
   box-sizing: border-box;
   /* 确保输入框可点击 */
@@ -53,7 +45,7 @@
 
 .box:focus {
   border-color: var(--primary-dark);
-  box-shadow: 0 0 0 3px rgba(255, 158, 181, 0.2);
+  box-shadow: 0 0 0 0.04rem rgba(255, 158, 181, 0.2);
 }
 
 /* 新增点击热区指示 */
@@ -64,7 +56,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 30px;
+  border-radius: 0.4rem;
   background: rgba(255, 158, 181, 0.1);
   opacity: 0;
   transition: opacity 0.3s;
@@ -76,18 +68,18 @@
 
 .clear {
   position: absolute;
-  right: 20px;
+  right: 0.267rem;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 24px;
+  font-size: 0.32rem;
   color: var(--text-secondary);
   cursor: pointer;
   z-index: 2;
 }
 
 .searchButton {
-  width: 60px;
-  height: 60px;
+  width: 0.8rem;
+  height: 0.8rem;
   border-radius: 50%;
   background-color: var(--primary-color);
   color: white;
@@ -97,7 +89,7 @@
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
-  margin-left: 5px;
+  margin-left: 0.067rem;
   /* 新增悬停效果 */
   transition: transform 0.3s, background-color 0.3s;
 }
@@ -113,35 +105,35 @@
 }
 
 .searchIcon {
-  font-size: 24px;
+  font-size: 0.32rem;
 }
 
 /* 小屏幕适配 */
 @media (max-width: 375px) {
   .wrapper {
-    padding: 10px 10px;
+    padding: 0.133rem 0.133rem;
   }
   
   .box {
-    height: 50px;
-    font-size: 18px;
-    padding: 0 40px 0 15px;
+    height: 0.667rem;
+    font-size: 0.24rem;
+    padding: 0 0.533rem 0 0.2rem;
   }
   
   .searchButton {
-    width: 50px;
-    height: 50px;
+    width: 0.667rem;
+    height: 0.667rem;
   }
   
   .backButton, 
   .clearButton,
   .searchIcon {
-    font-size: 20px;
+    font-size: 0.267rem;
   }
 
   /* 移动端点击区域调整 */
   .boxWrapper {
-    padding: 12px 0;
-    margin: -12px 0;
+    padding: 0.16rem 0;
+    margin: -0.16rem 0;
   }
 }

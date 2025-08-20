@@ -1,29 +1,54 @@
-/* 确保滚动容器正确 */
+/* 页面容器 */
 .container {
-  min-height: calc(100vh - 60px); /* 减去header高度 */
-  position: relative;
+  width: 100%;             /* ✅ 避免 100vw 引起溢出 */
+  box-sizing: border-box;
+  min-height: calc(100vh - 0.8rem);
+  padding: 0.1rem;
+  margin: 0 auto;
+  overflow-x: hidden;      /* ✅ 禁止横向滚动 */
 }
 
-.waterfall {
+/* 瀑布流父容器 */
+.waterfallWrapper {
   display: flex;
-  gap: 16px;
+  justify-content: space-between; /* 保证 gap 平均分配 */
+  width: 100%;
+  box-sizing: border-box;
+  gap: 0.2rem;
 }
 
 .column {
+  width: calc(50% - 0.1rem); /* 两列各占一半，减去一半gap */
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0.2rem;
 }
 
-/* 防止body默认边距影响 */
+
+/* 没有更多内容 */
+.noMore {
+  text-align: center;
+  padding: 0.27rem;
+  color: #999;
+  font-size: 0.19rem;
+}
+
+/* 全局设置 */
 body {
   margin: 0;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-.noMore {
-  text-align: center;
-  padding: 20px;
-  color: #999;
-  font-size: 14px;
+/* ✅ 大屏幕适配，可选 */
+@media screen and (min-width: 768px) {
+  .column {
+    flex: 1 1 33.333%;   /* 平板以上三列 */
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .column {
+    flex: 1 1 25%;       /* 桌面四列 */
+  }
 }
