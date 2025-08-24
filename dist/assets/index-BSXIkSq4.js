@@ -1,0 +1,1 @@
+import{j as e}from"./index-7FYdZ7LW.js";const r="_header_1j3xj_1",a="_title_1j3xj_10",t={header:r,title:a},c=({title:s})=>e.jsx("header",{className:t.header,children:e.jsx("h1",{className:t.title,children:s})});export{c as A};

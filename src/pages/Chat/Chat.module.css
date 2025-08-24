@@ -62,7 +62,7 @@
 .container {
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.32rem;
-  background-image: url('/@/assets/HelloKitty_bg.jpg');
+  background-image: url('../assets/HelloKitty_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
