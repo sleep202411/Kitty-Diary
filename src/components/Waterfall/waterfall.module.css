@@ -40,15 +40,4 @@ body {
   box-sizing: border-box;
 }
 
-/* ✅ 大屏幕适配，可选 */
-@media screen and (min-width: 768px) {
-  .column {
-    flex: 1 1 33.333%;   /* 平板以上三列 */
-  }
-}
 
-@media screen and (min-width: 1200px) {
-  .column {
-    flex: 1 1 25%;       /* 桌面四列 */
-  }
-}

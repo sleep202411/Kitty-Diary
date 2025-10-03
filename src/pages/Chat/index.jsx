@@ -8,7 +8,9 @@ import useUserStore from '@/store/useUserStore';
 import { Toast } from 'react-vant';
 
 const Chat = () => {
-  useTitle('kitty陪伴助手');
+  useEffect(() => {
+    document.title = 'kitty陪伴助手';
+  }, []);
 
   const { messages, addMessage, clearMessages } = useChatStore();
   const { userInfo } = useUserStore();
@@ -104,7 +106,11 @@ const Chat = () => {
             key={message.id} 
             className={`${styles.message} ${message.isBot ? styles.botMessage : styles.userMessage}`}
           >
-            <img src={message.avatar} alt="头像" className={styles.avatar} />
+            <img 
+              src={message.isBot ? message.avatar : userInfo?.avatar || 'https://placekitten.com/100/100'} 
+              alt="头像" 
+              className={styles.avatar} 
+            />
             <div className={styles.messageContent}>
               {message.content}
             </div>

@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import styles from './story.module.css'
+import { useState } from 'react'
 import useTitle from '@/hooks/useTitle'
 
 const Story = () => {

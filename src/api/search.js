@@ -1,4 +1,4 @@
-import api from './config';
+import axios from './config';
 
 /**
  * 获取热门搜索列表
@@ -6,7 +6,7 @@ import api from './config';
  */
 export const getHotList = async () => {
   try {
-    const res = await api.get('/hotList'); // 调用 /api/hotList
+    const res = await axios.get('/hotList'); // 调用 /api/hotList
     const data = res.data;
 
     return data.code === 0 ? data : { code: -1, data: [] };
@@ -23,7 +23,10 @@ export const getHotList = async () => {
  */
 export const getSuggestList = async (keyword) => {
   try {
-    const res = await api.get('/suggest', { keyword });
+    const res = await axios.get('/suggest', {
+      params: { keyword },
+      timeout: 3000
+    });
     const data = res.data;
 
     return data.code === 0 ? data : { code: -1, data: [] };

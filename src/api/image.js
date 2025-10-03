@@ -1,4 +1,4 @@
-import api from './config';
+import axios from './config';
 
 /**
  * 获取瀑布流图片
@@ -7,7 +7,10 @@ import api from './config';
  */
 export const getImages = async (page = 1) => {
   try {
-    const res = await api.get('/images', { page });
+    const res = await axios.get('/images', {
+      params: { page },
+      timeout: 5000
+    });
     const data = res.data;
 
     return data.code === 0 ? data.data : { images: [], hasMore: false };
